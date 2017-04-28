@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+import os
+
 def check_file_crawlerd(ip): 
 	with open("crawlerd.txt") as f:
 	    lines = f.readlines()
@@ -14,13 +16,25 @@ def check_file_crawlerd(ip):
 	return False
 
 def write_to_crawlerd(ip):
-	with open("crawlerd.txt", "a") as f:
-	    f.write(ip) 
+	d = "crawlerd.txt"
+	if not os.path.exists(d):
+		    open(d, 'w+')
+	else:
+		with open(d, "a") as f:
+		    	f.write(ip+"\n") 
 
 def write_to_working(ip, port):
-	with open("working.txt", "a") as f:
-		f.write(ip, port)
+	d = "working.txt"
+	if not os.path.exists(d):
+		    open(d, 'w+')
+	else:
+		with open(d, "a") as f:
+			f.write(ip + " " + str(port) + "\n")
 
 def write_to_not_working(ip, port):
-	with open("notworking.txt", "a") as f:
-		f.write(ip, port)
+	d = "notworking.txt"
+	if not os.path.exists(d):
+		    open(d, 'w+')
+	else:
+		with open(d, "a") as f:
+			f.write(ip + " " + str(port) + "\n")
