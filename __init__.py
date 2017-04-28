@@ -9,7 +9,11 @@ def main():
 	for ip in ip_port[0]:
 		for port in ip_port[1]:
 			print ip, port
-			print checker.check_if_proxy_works(ip, port)
+			check = checker.check_if_proxy_works(ip, int(port)) 
+			if check == "error" or check == False:
+				print "next"
+			else:
+				print check
 	
 if __name__ == "__main__":
 	try:

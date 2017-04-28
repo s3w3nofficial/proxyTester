@@ -3,13 +3,13 @@
 
 import os
 
-def check_file_crawlerd(ip): 
+def check_file_crawlerd(string): 
 	with open("crawlerd.txt") as f:
 	    lines = f.readlines()
 	 
 	for line in lines:
 		line = line.strip('\n')
-		if ip == line:
+		if string == line:
 			#print "file contain ip"
 			return True
 			break
