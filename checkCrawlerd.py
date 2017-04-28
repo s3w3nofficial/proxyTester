@@ -10,7 +10,7 @@ def check_file_crawlerd(ip):
 	for line in lines:
 		line = line.strip('\n')
 		if ip == line:
-			print "file contain ip"
+			#print "file contain ip"
 			return True
 			break
 	return False
@@ -38,3 +38,5 @@ def write_to_not_working(ip, port):
 	else:
 		with open(d, "a") as f:
 			f.write(ip + " " + str(port) + "\n")
+
+#print check_file_crawlerd("68.128.212.240")

@@ -28,5 +28,6 @@ def check_if_proxy_works(ip, port):
 			except:
 				return "error"
 		else:
-			cc.write_to_crawlerd(ip)
+			if cc.check_file_crawlerd(ip) == False:
+				cc.write_to_crawlerd(ip)
 			return "already-cralwerd"
