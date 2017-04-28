@@ -3,7 +3,7 @@
 
 import urllib
 import re
-import checkCrawlerd as cc
+import checkCrawled as cc
 import os
 import sys
 
