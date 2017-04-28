@@ -2,6 +2,7 @@
 #-*- coding: utf-8 -*-
 import crawler as c
 import checkProxy as checker
+import sys
 
 def main():
 	ip_port = c.get_ip_port()
@@ -11,4 +12,8 @@ def main():
 			print checker.check_if_proxy_works(ip, port)
 	
 if __name__ == "__main__":
-	main()
+	try:
+		main()
+	except KeyboardInterrupt:
+		print "Ctrl+C was pressed. Quitting."
+		sys.exit(0)
