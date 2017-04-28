@@ -11,7 +11,7 @@ def check_if_proxy_works(ip, port):
 	if not os.path.exists("crawlerd.txt"):
 		    open('crawlerd.txt', 'w+')
 
-	elif cc.check_file_crawlerd(ip) == False:			
+	if cc.check_file_crawlerd(ip) == False:			
 		try:	
 			proxy = {'http' : 'http://' + ip + ':' + str(port)}	
 			proxy = urllib.urlopen("http://httpbin.org/ip", proxies=proxy).read()
@@ -30,4 +30,7 @@ def check_if_proxy_works(ip, port):
 			sys.exit(0)
 		except:
 			return "error"
+	else:
+		return "already crawled"
+
 	return "error"

@@ -13,14 +13,13 @@ def main():
 			print ip, port
 	"""
 
-	for ip in ip_port[0]:
-		for port in ip_port[1]:
-			print ip, port
-			check = checker.check_if_proxy_works(ip, int(port)) 
-			if check == "error" or check == False:
-				print "next"
-			else:
-				print check
+	i = 0
+	while i < len(ip_port[0]):
+		check = checker.check_if_proxy_works(ip_port[0][i], int(ip_port[1][i]))
+		print ip_port[0][i], ip_port[1][i], check
+
+		i += 1
+
 	
 if __name__ == "__main__":
 	try:
