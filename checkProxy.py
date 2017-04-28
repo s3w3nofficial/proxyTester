@@ -3,6 +3,7 @@
 
 import urllib
 import re
+import sys
 
 def check_if_proxy_works(ip, port):
 	proxy = {'http' : 'http://' + ip + ':' + str(port)}
@@ -14,5 +15,8 @@ def check_if_proxy_works(ip, port):
 			return True
 		else:
 			return False
+	except KeyboardInterrupt:
+		print "Ctrl+C was pressed. Quitting."
+		sys.exit(0)
 	except:
 		return "error"
