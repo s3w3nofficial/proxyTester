@@ -14,10 +14,8 @@ def check_if_proxy_works(ip, port):
 	elif cc.check_file_crawlerd(ip) == False:			
 		try:	
 			proxy = {'http' : 'http://' + ip + ':' + str(port)}	
-			print "here"
 			proxy = urllib.urlopen("http://httpbin.org/ip", proxies=proxy).read()
 			proxy = re.findall(r'"([^"]*)"', proxy)
-			print proxy, "qifiqfq"
 			if ip in proxy:
 				cc.write_to_crawlerd(ip)
 				cc.write_to_working(ip, port)

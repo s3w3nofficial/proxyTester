@@ -6,6 +6,13 @@ import sys
 
 def main():
 	ip_port = c.get_ip_port()
+	"""
+	print ip_port
+	for ip in ip_port[0]:
+		for port in ip_port[1]:
+			print ip, port
+	"""
+
 	for ip in ip_port[0]:
 		for port in ip_port[1]:
 			print ip, port
