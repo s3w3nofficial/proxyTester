@@ -5,6 +5,7 @@ import urllib
 import re
 import checkCrawlerd as cc
 import os
+import sys
 
 def check_if_proxy_works(ip, port):
 	if not os.path.exists("crawlerd.txt"):
@@ -25,6 +26,9 @@ def check_if_proxy_works(ip, port):
 					cc.write_to_crawlerd(ip)
 					cc.write_to_not_working(ip, port)
 					return False
+			except KeyboardInterrupt:
+				print "Ctrl+C was pressed. Quitting. "
+				sys.exit(0)
 			except:
 				return "error"
 		else:
