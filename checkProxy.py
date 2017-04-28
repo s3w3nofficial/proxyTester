@@ -3,16 +3,30 @@
 
 import urllib
 import re
+import checkCrawlerd as cc
+import os
 
 def check_if_proxy_works(ip, port):
-	proxy = {'http' : 'http://' + ip + ':' + str(port)}
-	try:
-		proxy = urllib.urlopen("http://httpbin.org/ip", proxies=proxy).read()
-		proxy = re.findall(r'"([^"]*)"', proxy)
+	if not os.path.exists("crawlerd.txt"):
+		    open('crawlerd.txt', 'w+')
+	else:
+		if cc.check_file_crawlerd(ip) == False:
+					
+			proxy = {'http' : 'http://' + ip + ':' + str(port)}
+			try:
+				proxy = urllib.urlopen("http://httpbin.org/ip", proxies=proxy).read()
+				proxy = re.findall(r'"([^"]*)"', proxy)
 	
-		if ip in proxy[1]:
-			return True
+				if ip in proxy[1]:
+					cc.write_to_crawlerd(ip)
+					cc.write_to_working(ip, port)
+					return True
+				else:
+					cc.write_to_crawlerd(ip)
+					cc.write_to_not_working(ip, port)
+					return False
+			except:
+				return "error"
 		else:
-			return False
-	except:
-		return "error"
+			cc.write_to_crawlerd(ip)
+			return "already-cralwerd"
