@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
 import urllib
@@ -38,8 +38,8 @@ def check_proxy(ip, port):
 			return True
 		else:
 			return False
-		except KeyboardInterrupt:
-			print "Ctrl+c was pressed. Exiting!!!"
+		except KeyboardInterrupt as e:
+			print("Ctrl+c was pressed. Exiting!!!")
 			sys.exit(0)
 		except:
 			return "connection lost"

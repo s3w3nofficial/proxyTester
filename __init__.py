@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 import crawler as c
 import checkProxy as checker
@@ -24,6 +24,6 @@ def main():
 if __name__ == "__main__":
 	try:
 		main()
-	except KeyboardInterrupt:
-		print "Ctrl+C was pressed. Quitting."
+	except KeyboardInterrupt as e:
+		print("Ctrl+C was pressed. Quitting.")
 		sys.exit(0)

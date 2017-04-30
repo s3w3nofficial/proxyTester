@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #-*- coding: utf-8 -*-
 
 import urllib
@@ -25,8 +25,8 @@ def check_if_proxy_works(ip, port):
 				cc.write_to_not_working(ip, port)
 				return False
 			
-		except KeyboardInterrupt:
-			print "Ctrl+C was pressed. Quitting. "
+		except KeyboardInterrupt as e:
+			print("Ctrl+C was pressed. Quitting. ")
 			sys.exit(0)
 		except:
 			return "error"
